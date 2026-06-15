@@ -1,0 +1,1537 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GG Zone Internet & Gaming Cafe - ร้านเน็ตสุดชิลล์สำหรับเกมเมอร์</title>
+    <!-- Google Fonts: Noto Sans Thai & Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Noto+Sans+Thai:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* CSS Reset & Variables */
+        :root {
+            --bg-primary: #0b0f19;
+            --bg-secondary: #161f30;
+            --bg-tertiary: #1e293b;
+            --accent-cyan: #06b6d4;
+            --accent-purple: #8b5cf6;
+            --accent-green: #10b981;
+            --accent-red: #ef4444;
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --neon-glow: 0 0 15px rgba(6, 182, 212, 0.4);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans Thai', 'Montserrat', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Utility Styles */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .text-center { text-align: center; }
+        .accent-text { color: var(--accent-cyan); }
+        .gradient-text {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Header / Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--glass-border);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .logo i {
+            color: var(--accent-cyan);
+            filter: drop-shadow(0 0 5px var(--accent-cyan));
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .btn-nav {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            color: var(--text-light);
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            box-shadow: var(--neon-glow);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-nav:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(6, 182, 212, 0.6);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        #home {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: radial-gradient(circle at 75% 20%, rgba(139, 92, 246, 0.15), transparent 45%),
+                        radial-gradient(circle at 15% 80%, rgba(6, 182, 212, 0.15), transparent 45%);
+            padding-top: 100px;
+            padding-bottom: 60px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 35px;
+            max-width: 500px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            color: var(--text-light);
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition);
+            box-shadow: var(--neon-glow);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px rgba(6, 182, 212, 0.6);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-light);
+            border: 2px solid var(--accent-cyan);
+            padding: 13px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(6, 182, 212, 0.1);
+            box-shadow: 0 0 15px rgba(6, 182, 212, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-image-wrapper {
+            width: 100%;
+            max-width: 500px;
+            height: 350px;
+            background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Abstract gaming visual */
+        .game-visual {
+            width: 250px;
+            height: 250px;
+            position: relative;
+        }
+
+        .game-visual::before, .game-visual::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        .game-visual::before {
+            top: 10%;
+            left: 10%;
+            width: 80%;
+            height: 80%;
+            border: 4px dashed var(--accent-cyan);
+            animation: spin 20s linear infinite;
+        }
+
+        .game-visual::after {
+            top: 20%;
+            left: 20%;
+            width: 60%;
+            height: 60%;
+            border: 3px solid var(--accent-purple);
+            animation: spin-reverse 15s linear infinite;
+        }
+
+        .visual-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3.5rem;
+            color: var(--text-light);
+            text-shadow: 0 0 15px var(--accent-cyan);
+            animation: pulse 2s infinite ease-in-out;
+        }
+
+        /* About Section */
+        section {
+            padding: 80px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .section-header {
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .about-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .about-card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 30px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(6, 182, 212, 0.3);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-card:hover::before {
+            opacity: 1;
+        }
+
+        .about-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .about-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+
+        .about-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Computer Specs Section */
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .specs-card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .specs-card:hover {
+            border-color: rgba(6, 182, 212, 0.3);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            transform: translateY(-3px);
+        }
+
+        .specs-header {
+            padding: 25px;
+            background-color: rgba(255, 255, 255, 0.02);
+            border-bottom: 1px solid var(--glass-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .specs-title h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .specs-price {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--accent-cyan);
+        }
+
+        .specs-price span {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+
+        .specs-list {
+            list-style: none;
+            padding: 25px;
+        }
+
+        .specs-list li {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            color: var(--text-light);
+        }
+
+        .specs-list li:last-child {
+            border-bottom: none;
+        }
+
+        .specs-list li i {
+            color: var(--accent-purple);
+            width: 20px;
+            text-align: center;
+        }
+
+        .specs-list li strong {
+            color: var(--text-muted);
+            font-weight: 400;
+            width: 80px;
+            display: inline-block;
+        }
+
+        .specs-footer {
+            padding: 20px 25px;
+            background-color: rgba(255, 255, 255, 0.02);
+            text-align: center;
+        }
+
+        /* Seat Availability System (Interactive) */
+        .seat-map-wrapper {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 30px;
+            margin-top: 40px;
+        }
+
+        .map-legend {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+
+        .legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 4px;
+        }
+
+        .color-available { background-color: var(--accent-green); }
+        .color-occupied { background-color: var(--accent-red); }
+        .color-maintenance { background-color: #f59e0b; }
+        .color-selected { background-color: var(--accent-cyan); box-shadow: 0 0 8px var(--accent-cyan); }
+
+        .seat-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 15px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .seat {
+            aspect-ratio: 1;
+            background-color: var(--bg-tertiary);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .seat i {
+            font-size: 1.4rem;
+            margin-bottom: 4px;
+        }
+
+        .seat-num {
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Seat states */
+        .seat.available {
+            border-bottom: 3px solid var(--accent-green);
+        }
+        .seat.available:hover {
+            background-color: rgba(16, 185, 129, 0.1);
+            transform: scale(1.05);
+        }
+
+        .seat.occupied {
+            border-bottom: 3px solid var(--accent-red);
+            color: var(--text-muted);
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .seat.maintenance {
+            border-bottom: 3px solid #f59e0b;
+            color: var(--text-muted);
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .seat.selected {
+            border: 2px solid var(--accent-cyan);
+            background-color: rgba(6, 182, 212, 0.15) !important;
+            color: var(--text-light) !important;
+            box-shadow: var(--neon-glow);
+            transform: scale(1.05);
+        }
+
+        .booking-panel {
+            max-width: 500px;
+            margin: 30px auto 0 auto;
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: var(--bg-tertiary);
+            border: 1px solid var(--glass-border);
+            display: none;
+        }
+
+        /* Food & Snacks Section */
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .food-card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .food-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(139, 92, 246, 0.3);
+        }
+
+        .food-icon-wrapper {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: rgba(139, 92, 246, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px auto;
+        }
+
+        .food-icon-wrapper i {
+            font-size: 2rem;
+            color: var(--accent-purple);
+        }
+
+        .food-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 8px;
+        }
+
+        .food-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .food-price {
+            font-weight: 700;
+            color: var(--accent-cyan);
+            font-size: 1.2rem;
+        }
+
+        /* Calculator Section */
+        .calculator-wrapper {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 40px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .calc-group {
+            margin-bottom: 25px;
+        }
+
+        .calc-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .calc-select {
+            width: 100%;
+            background-color: var(--bg-tertiary);
+            border: 1px solid var(--glass-border);
+            color: var(--text-light);
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .calc-select:focus {
+            border-color: var(--accent-cyan);
+        }
+
+        .range-slider {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .range-slider input[type="range"] {
+            flex-grow: 1;
+            height: 6px;
+            border-radius: 5px;
+            outline: none;
+            accent-color: var(--accent-cyan);
+        }
+
+        .range-value {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            min-width: 50px;
+            text-align: right;
+        }
+
+        .calc-result {
+            background-color: var(--bg-tertiary);
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 30px;
+            border-left: 4px solid var(--accent-cyan);
+        }
+
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .result-row:last-child {
+            margin-bottom: 0;
+            padding-top: 10px;
+            border-top: 1px dashed var(--glass-border);
+        }
+
+        .result-total {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--accent-green);
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 40px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .contact-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 8px;
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-cyan);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-text h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .contact-text p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Mock Map */
+        .mock-map {
+            width: 100%;
+            height: 100%;
+            min-height: 250px;
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .map-bg {
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .map-card {
+            position: relative;
+            background-color: var(--bg-tertiary);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            max-width: 250px;
+        }
+
+        .map-card i {
+            color: var(--accent-red);
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            animation: bounce 2s infinite;
+        }
+
+        /* Footer & Academic Disclaimer */
+        footer {
+            background-color: #070a11;
+            padding: 50px 0 20px 0;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo h3 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            max-width: 300px;
+        }
+
+        .footer-links h4 {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-cyan);
+            padding-left: 5px;
+        }
+
+        .disclaimer-box {
+            background-color: rgba(239, 68, 68, 0.05);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .disclaimer-title {
+            color: #f87171;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .disclaimer-text {
+            color: #fca5a5;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--bg-secondary);
+            border-left: 4px solid var(--accent-green);
+            border-top: 1px solid var(--glass-border);
+            border-right: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--glass-border);
+            border-radius: 4px;
+            padding: 15px 25px;
+            color: var(--text-light);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transform: translateY(150px);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .toast.show {
+            transform: translateY(0);
+        }
+
+        /* Animations */
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes spin-reverse {
+            from { transform: rotate(360deg); }
+            to { transform: rotate(0deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; text-shadow: 0 0 25px var(--accent-cyan); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 50px;
+            }
+
+            .hero-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-btns {
+                justify-content: center;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .mock-map {
+                min-height: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                height: 70px;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--bg-primary);
+                border-bottom: 1px solid var(--glass-border);
+                padding: 20px;
+                gap: 20px;
+                align-items: center;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 2.3rem;
+            }
+
+            .seat-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .seat-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .hero-btns {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn-primary, .btn-secondary {
+                text-align: center;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fa-solid fa-gamepad"></i>
+                    <span>GG Zone</span>
+                </div>
+                <button class="menu-toggle" id="menuToggle" aria-label="เปิดเมนู">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">หน้าแรก</a></li>
+                    <li><a href="#about">จุดเด่นร้าน</a></li>
+                    <li><a href="#specs">สเปกคอม & ราคา</a></li>
+                    <li><a href="#seats">เช็คเครื่องว่าง</a></li>
+                    <li><a href="#food">อาหาร & เครื่องดื่ม</a></li>
+                    <li><a href="#contact">ติดต่อเรา</a></li>
+                </ul>
+                <button class="btn-nav" onclick="scrollToSeats()">จองเครื่อง</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <h1>สัมผัสประสบการณ์<br><span class="gradient-text">เล่นเกมสุดลื่นไหล</span></h1>
+                    <p>ร้านอินเตอร์เน็ตและเกมมิ่งคาเฟ่ขวัญใจคนในซอย เน้นคอมสเปกดี แอร์เย็น เก้าอี้นุ่ม พร้อมอาหารและเครื่องดื่มบริการตลอดวัน ในราคามิตรภาพเริ่มต้นเพียง 15 บาท/ชม.!</p>
+                    <div class="hero-btns">
+                        <a href="#seats" class="btn-primary">ตรวจสอบเครื่องว่าง</a>
+                        <a href="#specs" class="btn-secondary">ดูสเปกคอม</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="hero-image-wrapper">
+                        <div class="game-visual">
+                            <div class="visual-center">
+                                <i class="fa-solid fa-desktop"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>ทำไมต้องมาเล่นที่ <span class="accent-text">GG Zone</span>?</h2>
+                <p>เราเตรียมทุกอย่างไว้พร้อม เพื่อให้การเล่นเกมหรือการทำงานของคุณไม่มีคำว่าสะดุด</p>
+            </div>
+            <div class="about-cards">
+                <div class="about-card">
+                    <i class="fa-solid fa-gauge-high about-icon"></i>
+                    <h3>เน็ตแรงไม่มีสะดุด</h3>
+                    <p>บริการด้วยสายไฟเบอร์ออพติกความเร็วสูง 1 Gbps/500 Mbps แยกท่อเกมและท่อเว็บ มั่นใจได้ว่าปิงต่ำ ไร้อาการแลค</p>
+                </div>
+                <div class="about-card">
+                    <i class="fa-solid fa-snowflake about-icon"></i>
+                    <h3>แอร์เย็นฉ่ำสบาย</h3>
+                    <p>ปรับอากาศเย็นสบายตลอด 24 ชั่วโมง พร้อมระบบฟอกอากาศ ช่วยให้บรรยากาศในร้านสะอาด ปราศจากกลิ่นอับ</p>
+                </div>
+                <div class="about-card">
+                    <i class="fa-solid fa-chair about-icon"></i>
+                    <h3>เก้าอี้เกมมิ่งอย่างดี</h3>
+                    <p>เล่นนานแค่ไหนก็ไม่เมื่อยด้วยเก้าอี้สไตล์ Ergonomic ปรับเอนได้พอดีตัว ซัพพอร์ตสรีระของเหล่าเกมเมอร์</p>
+                </div>
+                <div class="about-card">
+                    <i class="fa-solid fa-bowl-food about-icon"></i>
+                    <h3>อาหารตามสั่งร้อนๆ</h3>
+                    <p>มีเมนูมาม่าคัพปรุงพิเศษ ใส่ไข่ ใส่ไส้กรอก และเครื่องดื่มเย็นๆ บริการเสิร์ฟให้ถึงโต๊ะโดยไม่ต้องลุกไปไหน</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specs Section -->
+    <section id="specs">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>โซนสเปกคอมพิวเตอร์</h2>
+                <p>เลือกเครื่องที่ใช่สำหรับเกมที่คุณชอบ มีบริการทั้งหมด 2 โซนตามความต้องการ</p>
+            </div>
+            <div class="specs-grid">
+                <!-- Standard Card -->
+                <div class="specs-card">
+                    <div class="specs-header">
+                        <div class="specs-title">
+                            <h3>Standard Zone</h3>
+                            <p style="color: var(--text-muted); font-size: 0.85rem;">เหมาะสำหรับเล่นทั่วไป / ทำงาน</p>
+                        </div>
+                        <div class="specs-price">฿15 <span>/ ชม.</span></div>
+                    </div>
+                    <ul class="specs-list">
+                        <li><i class="fa-solid fa-microchip"></i> <strong>CPU:</strong> Intel Core i5-12400F</li>
+                        <li><i class="fa-solid fa-memory"></i> <strong>RAM:</strong> 16GB DDR4 3200MHz</li>
+                        <li><i class="fa-solid fa-hard-drive"></i> <strong>GPU:</strong> NVIDIA GeForce RTX 3060</li>
+                        <li><i class="fa-solid fa-display"></i> <strong>จอภาพ:</strong> MSI 24" IPS FHD 144Hz</li>
+                        <li><i class="fa-solid fa-keyboard"></i> <strong>เกียร์:</strong> Gaming Keyboard & Mouse (Blue Switch)</li>
+                    </ul>
+                    <div class="specs-footer">
+                        <span style="color: var(--accent-cyan); font-weight: 600;"><i class="fa-solid fa-circle-check"></i> รวม 14 เครื่อง</span>
+                    </div>
+                </div>
+
+                <!-- Pro Card -->
+                <div class="specs-card" style="border-color: rgba(139, 92, 246, 0.3);">
+                    <div class="specs-header" style="background: rgba(139, 92, 246, 0.05);">
+                        <div class="specs-title">
+                            <h3>Pro Gaming Zone</h3>
+                            <p style="color: var(--text-muted); font-size: 0.85rem;">สำหรับคอเกม FPS / ไต่แรงก์</p>
+                        </div>
+                        <div class="specs-price" style="color: var(--accent-purple);">฿20 <span>/ ชม.</span></div>
+                    </div>
+                    <ul class="specs-list">
+                        <li><i class="fa-solid fa-microchip"></i> <strong>CPU:</strong> AMD Ryzen 5 7500F</li>
+                        <li><i class="fa-solid fa-memory"></i> <strong>RAM:</strong> 16GB DDR5 5200MHz</li>
+                        <li><i class="fa-solid fa-hard-drive"></i> <strong>GPU:</strong> NVIDIA GeForce RTX 4060</li>
+                        <li><i class="fa-solid fa-display"></i> <strong>จอภาพ:</strong> ASUS ROG 24.5" 240Hz</li>
+                        <li><i class="fa-solid fa-keyboard"></i> <strong>เกียร์:</strong> HyperX Mechanical Keyboard & SteelSeries Mouse</li>
+                    </ul>
+                    <div class="specs-footer" style="background: rgba(139, 92, 246, 0.02);">
+                        <span style="color: var(--accent-purple); font-weight: 600;"><i class="fa-solid fa-circle-check"></i> รวม 6 เครื่อง</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seat Status Section -->
+    <section id="seats">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>ระบบเช็คสถานะและทดลองจองเครื่อง</h2>
+                <p>คลิกเลือกเครื่องที่แสดงสถานะว่าง <span style="color: var(--accent-green); font-weight: bold;">สีเขียว</span> เพื่อทำรายการจองล่วงหน้า</p>
+            </div>
+            
+            <div class="seat-map-wrapper">
+                <div class="map-legend">
+                    <div class="legend-item">
+                        <div class="legend-color color-available"></div>
+                        <span>ว่าง (Available)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color color-occupied"></div>
+                        <span>มีผู้ใช้ (Occupied)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color color-maintenance"></div>
+                        <span>ปรับปรุง (Maintenance)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color color-selected"></div>
+                        <span>เครื่องที่คุณเลือก (Selected)</span>
+                    </div>
+                </div>
+
+                <div class="seat-grid" id="seatGrid">
+                    <!-- Seats generated dynamically via JS -->
+                </div>
+
+                <!-- Interactive Booking Form -->
+                <div class="booking-panel" id="bookingPanel">
+                    <h3 style="margin-bottom: 10px;">แบบฟอร์มจำลองจองเครื่อง <span id="selectedSeatLabel" class="accent-text"></span></h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">กรอกเบอร์โทรศัพท์เพื่อทำการจองจำลอง (เก็บสิทธิ์ไว้ให้ 10 นาที)</p>
+                    <div style="display: flex; gap: 10px; justify-content: center; max-width: 350px; margin: 0 auto;">
+                        <input type="tel" id="userPhone" placeholder="เบอร์โทรศัพท์ของคุณ" style="padding: 10px 15px; border-radius: 6px; border: 1px solid var(--glass-border); background-color: var(--bg-primary); color: white; outline: none; flex-grow: 1;">
+                        <button onclick="submitBooking()" class="btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">ยืนยันจอง</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Calculator Section -->
+    <section id="calculator">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>คำนวณค่าบริการล่วงหน้า</h2>
+                <p>จำลองคำนวณค่าชั่วโมงพร้อมส่วนลดพิเศษเมื่อเล่นแบบเหมาเหมา</p>
+            </div>
+
+            <div class="calculator-wrapper">
+                <div class="calc-group">
+                    <label for="zoneSelect">เลือกโซนให้บริการ</label>
+                    <select id="zoneSelect" class="calc-select" onchange="calculatePrice()">
+                        <option value="15">Standard Zone (15 บ./ชม.)</option>
+                        <option value="20">Pro Gaming Zone (20 บ./ชม.)</option>
+                    </select>
+                </div>
+
+                <div class="calc-group">
+                    <label for="hoursInput">จำนวนชั่วโมงที่ต้องการเล่น</label>
+                    <div class="range-slider">
+                        <input type="range" id="hoursInput" min="1" max="12" value="3" oninput="updateHoursLabel(this.value)">
+                        <span class="range-value" id="hoursValue">3 ชม.</span>
+                    </div>
+                </div>
+
+                <div class="calc-result">
+                    <div class="result-row">
+                        <span>ราคาปกติ:</span>
+                        <span id="basePrice">45 บาท</span>
+                    </div>
+                    <div class="result-row">
+                        <span>ส่วนลดเหมาจ่าย (เล่น 3 ชม. ขึ้นไป ลด 10%):</span>
+                        <span id="discountPrice" class="accent-text">-4.5 บาท</span>
+                    </div>
+                    <div class="result-row">
+                        <span class="result-total">รวมค่าบริการสุทธิ:</span>
+                        <span id="totalPrice" class="result-total" style="color: var(--accent-green);">40.5 บาท</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Food & Drinks Section -->
+    <section id="food">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>อาหารว่าง & เครื่องดื่ม</h2>
+                <p>เติมพลังระหว่างการเล่นเกมโดยไม่ต้องลุกออกจากเก้าอี้ด้วยเมนูยอดฮิต</p>
+            </div>
+            <div class="food-grid">
+                <div class="food-card">
+                    <div class="food-icon-wrapper">
+                        <i class="fa-solid fa-bowl-hot"></i>
+                    </div>
+                    <h3>มาม่าทรงเครื่อง</h3>
+                    <p>บะหมี่กึ่งสำเร็จรูปปรุงพิเศษ ใส่ไข่ลวก ไส้กรอก และต้นหอม</p>
+                    <span class="food-price">35.-</span>
+                </div>
+                <div class="food-card">
+                    <div class="food-icon-wrapper">
+                        <i class="fa-solid fa-bottle-water"></i>
+                    </div>
+                    <h3>เป๊ปซี่เย็นเจี๊ยบ</h3>
+                    <p>เครื่องดื่มอัดลมใส่น้ำแข็งเย็นชื่นใจ ช่วยดับกระหาย</p>
+                    <span class="food-price">20.-</span>
+                </div>
+                <div class="food-card">
+                    <div class="food-icon-wrapper">
+                        <i class="fa-solid fa-cookie"></i>
+                    </div>
+                    <h3>ขนมขบเคี้ยว</h3>
+                    <p>เลย์ โก๋แก่ และป๊อกกี้ เคี้ยวเพลินๆ ระหว่างฟาร์มของ</p>
+                    <span class="food-price">15.-</span>
+                </div>
+                <div class="food-card">
+                    <div class="food-icon-wrapper">
+                        <i class="fa-solid fa-mug-hot"></i>
+                    </div>
+                    <h3>ชาเขียว / โออิชิ</h3>
+                    <p>ชาเขียวเย็นหวานน้อย เติมความสดชื่นทันใจ</p>
+                    <span class="food-price">25.-</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Location Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>ติดต่อและที่ตั้งร้าน</h2>
+                <p>ร้านตั้งอยู่บนระบบจำลองเชิงศึกษาและอวกาศ เดินทางสะดวกด้วยทางช้างเผือก</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="contact-text">
+                            <h4>ที่ตั้งร้าน</h4>
+                            <p>999/9 หมู่บ้านเนเวอร์แลนด์ ถนนสมมุติ แขวงคิดไปเอง เขตสมมุติขึ้นมา กรุงเทพฯ 99999</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+                        <div class="contact-text">
+                            <h4>เบอร์โทรศัพท์ติดต่อ</h4>
+                            <p>099-สมมุติ-9999 (เบอร์โทรจำลอง กรุณาอย่ากดโทรออกจริง)</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div class="contact-text">
+                            <h4>อีเมล</h4>
+                            <p>fake-email-no-real-business@test.example.com (อีเมลจำลอง)</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fa-brands fa-facebook"></i></div>
+                        <div class="contact-text">
+                            <h4>Facebook Fanpage</h4>
+                            <p>facebook.com/this-is-just-a-school-project-do-not-search (เพจไม่มีอยู่จริง)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mock-map">
+                    <div class="map-bg"></div>
+                    <div class="map-card">
+                        <i class="fa-solid fa-location-pin"></i>
+                        <h4 style="margin-bottom: 5px;">GG Zone Cafe (จำลอง)</h4>
+                        <p style="font-size: 0.8rem; color: var(--text-muted);">อยู่บนดาวอังคาร ซอย 4 เลี้ยวซ้ายตรงทางช้างเผือก</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-logo">
+                    <h3>GG Zone Internet</h3>
+                    <p>ร้านเกมระดับมาตรฐานชุมชน ปิงน้อย แอร์เย็น เครื่องนุ่ม พร้อมให้บริการตลอดวันในราคากันเอง</p>
+                </div>
+                <div class="footer-links">
+                    <h4>เมนูแนะนำ</h4>
+                    <ul>
+                        <li><a href="#about">จุดเด่นร้าน</a></li>
+                        <li><a href="#specs">สเปกคอม</a></li>
+                        <li><a href="#seats">จองเครื่อง</a></li>
+                        <li><a href="#calculator">คำนวณราคา</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>เวลาทำการ</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 10px;">เปิดให้บริการทุกวัน</p>
+                    <p style="color: var(--accent-cyan); font-weight: 700; font-size: 1.1rem;">10:00 น. - 24:00 น.</p>
+                </div>
+            </div>
+
+            <!-- Academic Disclaimer Box (Requirement) -->
+            <div class="disclaimer-box">
+                <div class="disclaimer-title">
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                    <span>ข้อชี้แจงเพื่อการศึกษา</span>
+                </div>
+                <div class="disclaimer-text">
+                    เว็บไซต์นี้สร้างขึ้นเพื่อวัตถุประสงค์ในการส่งงานในรายวิชาเรียนวิชาการพัฒนาเว็บไซต์เท่านั้น 
+                    ชื่อร้าน รายละเอียด สเปกคอมพิวเตอร์ ข้อมูลการจอง และข้อมูลติดต่อทั้งหมดเป็นข้อมูลสมมุติขึ้นเพื่อสาธิตระบบการออกแบบเว็บ 
+                    ไม่ใช่ธุรกิจที่มีอยู่จริง
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 GG Zone Gaming Cafe. All Rights Reserved. (Demo Project)</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification Element -->
+    <div id="toastNotification" class="toast">
+        <i class="fa-solid fa-circle-check" style="color: var(--accent-green); font-size: 1.2rem;"></i>
+        <span id="toastMessage">ทำรายการสำเร็จ!</span>
+    </div>
+
+    <!-- Script Block -->
+    <script>
+        // Responsive Mobile Menu
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when link is clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Smooth Scroll to Seats
+        function scrollToSeats() {
+            document.getElementById('seats').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Mock Seat Data
+        // states: 'available', 'occupied', 'maintenance'
+        const seatsData = [
+            { id: 1, num: 'PC-01', state: 'available', zone: 'Standard' },
+            { id: 2, num: 'PC-02', state: 'occupied', zone: 'Standard' },
+            { id: 3, num: 'PC-03', state: 'available', zone: 'Standard' },
+            { id: 4, num: 'PC-04', state: 'occupied', zone: 'Standard' },
+            { id: 5, num: 'PC-05', state: 'maintenance', zone: 'Standard' },
+            { id: 6, num: 'PC-06', state: 'available', zone: 'Standard' },
+            { id: 7, num: 'PC-07', state: 'occupied', zone: 'Standard' },
+            { id: 8, num: 'PC-08', state: 'available', zone: 'Standard' },
+            { id: 9, num: 'PC-09', state: 'available', zone: 'Standard' },
+            { id: 10, num: 'PC-10', state: 'occupied', zone: 'Standard' },
+            { id: 11, num: 'PC-11', state: 'available', zone: 'Pro' },
+            { id: 12, num: 'PC-12', state: 'occupied', zone: 'Pro' },
+            { id: 13, num: 'PC-13', state: 'available', zone: 'Pro' },
+            { id: 14, num: 'PC-14', state: 'available', zone: 'Pro' },
+            { id: 15, num: 'PC-15', state: 'maintenance', zone: 'Pro' },
+            { id: 16, num: 'PC-16', state: 'occupied', zone: 'Pro' },
+        ];
+
+        let selectedSeat = null;
+
+        // Render Seats
+        const seatGrid = document.getElementById('seatGrid');
+        
+        function renderSeats() {
+            seatGrid.innerHTML = '';
+            seatsData.forEach(seat => {
+                const seatEl = document.createElement('div');
+                seatEl.className = 'seat ' + seat.state;
+                if (selectedSeat && selectedSeat.id === seat.id) {
+                    seatEl.classList.add('selected');
+                }
+
+                seatEl.innerHTML = 
+                    '<i class="fa-solid ' + (seat.zone === 'Pro' ? 'fa-circle-chevron-up' : 'fa-desktop') + '"></i>' +
+                    '<span class="seat-num">' + seat.num + '</span>' +
+                    '<span style="font-size: 0.6rem; color: var(--text-muted);">' + seat.zone + '</span>';
+
+                if (seat.state === 'available') {
+                    seatEl.addEventListener('click', () => selectSeat(seat));
+                }
+
+                seatGrid.appendChild(seatEl);
+            });
+        }
+
+        // Select Seat Action
+        function selectSeat(seat) {
+            if (selectedSeat && selectedSeat.id === seat.id) {
+                // Deselect
+                selectedSeat = null;
+                document.getElementById('bookingPanel').style.display = 'none';
+            } else {
+                selectedSeat = seat;
+                document.getElementById('bookingPanel').style.display = 'block';
+                document.getElementById('selectedSeatLabel').innerText = '(' + seat.num + ' โซน ' + seat.zone + ')';
+                document.getElementById('userPhone').value = '';
+            }
+            renderSeats();
+        }
+
+        // Submit Booking (Mock Action - Non-functional)
+        function submitBooking() {
+            const phone = document.getElementById('userPhone').value.trim();
+            if (!phone) {
+                showToast('กรุณากรอกเบอร์โทรศัพท์เพื่อทำการจองจำลอง', 'error');
+                return;
+            }
+            
+            if (!/^[0-9]{9,10}$/.test(phone)) {
+                showToast('กรุณากรอกเบอร์โทรศัพท์ที่ถูกต้อง (9-10 หลัก)', 'error');
+                return;
+            }
+
+            // Show a red disclaimer toast informing that this is a simulated system and cannot reserve real PCs
+            showToast('ระบบนี้เป็นเพียง UI จำลองเพื่อการส่งงานวิชาเรียนเท่านั้น ไม่สามารถจองเครื่องจริงได้', 'error');
+            
+            // Reset selection state without executing any local booking updates
+            selectedSeat = null;
+            document.getElementById('bookingPanel').style.display = 'none';
+            renderSeats();
+        }
+
+        // Show Toast Function
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toastNotification');
+            const toastMessage = document.getElementById('toastMessage');
+            
+            toastMessage.innerText = message;
+            
+            if (type === 'error') {
+                toast.style.borderLeftColor = 'var(--accent-red)';
+                toast.querySelector('i').className = 'fa-solid fa-circle-xmark';
+                toast.querySelector('i').style.color = 'var(--accent-red)';
+            } else {
+                toast.style.borderLeftColor = 'var(--accent-green)';
+                toast.querySelector('i').className = 'fa-solid fa-circle-check';
+                toast.querySelector('i').style.color = 'var(--accent-green)';
+            }
+
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 4500); // slightly longer timeout for reading disclaimer
+        }
+
+        // Calculator Logic
+        // ...
+        function updateHoursLabel(val) {
+            document.getElementById('hoursValue').innerText = val + ' ชม.';
+            calculatePrice();
+        }
+
+        // Calculate Price Function
+        function calculatePrice() {
+            const rate = parseFloat(document.getElementById('zoneSelect').value);
+            const hours = parseFloat(document.getElementById('hoursInput').value);
+            
+            let base = rate * hours;
+            let discount = 0;
+            
+            // Discount logic: 3+ hours gets 10% discount
+            if (hours >= 3) {
+                discount = base * 0.1;
+            }
+
+            let total = base - discount;
+
+            document.getElementById('basePrice').innerText = base.toFixed(1) + ' บาท';
+            document.getElementById('discountPrice').innerText = discount > 0 ? '-' + discount.toFixed(1) + ' บาท' : '0 บาท';
+            document.getElementById('totalPrice').innerText = total.toFixed(1) + ' บาท';
+        }
+
+        // Initialize Page
+        renderSeats();
+        calculatePrice();
+    </script>
+</body>
+</html>
